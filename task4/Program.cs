@@ -15,8 +15,8 @@ namespace task4
             do
             {
                 Console.Write(sentence);
-                ok = double.TryParse(Console.ReadLine(), out result);
-                if (result < minBorder || result > maxBorder)
+                ok = double.TryParse(Console.ReadLine().Replace('.', ','), out result);
+                if (result <= minBorder || result > maxBorder)
                 {
                     ok = false;
                 }
@@ -43,7 +43,9 @@ namespace task4
         }
         static void Main(string[] args)
         {
-            double e = Input("Введите положительное число e: ");
+            Console.WriteLine("задача №4. (725в) Найти корень уравнения с заданной точностью.");
+            Console.WriteLine("x^4+2x^3-x-1=0 [0, 1]");
+            double e = Input("Введите число e, большее нуля: ", 0);
             Console.WriteLine("Результат: "+FindRoot(e));
             Console.ReadKey();
         }
